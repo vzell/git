@@ -41,6 +41,7 @@
   get_url:
     url: "https://www.kernel.org/pub/software/scm/git/git-{{ git_version }}.tar.gz"
     dest: "{{ workspace }}/git-{{ git_version }}.tar.gz"
+    validate_certs: false
   when: (git_installed_version.rc != 0) or (git_reinstall_from_source | bool)
 
 - name: Expand git archive.
